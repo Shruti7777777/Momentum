@@ -1,0 +1,1130 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body{
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+  position:relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      #02040a 0%,
+      #061520 35%,
+      #0a2230 60%,
+      #02050b 100%
+    );
+}
+
+
+
+/* =========================================
+   CYBER GRID
+========================================= */
+
+.grid-overlay{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:
+
+    linear-gradient(
+      rgba(0,255,255,0.14) 2px,
+      transparent 2px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(0,255,255,0.14) 2px,
+      transparent 2px
+    );
+
+  background-size:80px 80px;
+
+  transform:
+
+    perspective(1000px)
+
+    rotateX(75deg)
+
+    scale(2);
+
+  transform-origin:center;
+
+  animation:
+    gridMove 8s linear infinite;
+
+  opacity:0.7;
+
+  z-index:-5;
+
+  filter:
+
+    drop-shadow(0 0 12px cyan)
+
+    drop-shadow(0 0 35px #00ffee);
+}
+
+
+
+/* =========================================
+   AURA GLOW
+========================================= */
+
+body::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:-20%;
+
+  background:
+
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0,255,255,0.18),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(0,170,255,0.14),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(0,255,180,0.12),
+      transparent 30%
+    );
+
+  filter:blur(90px);
+
+  animation:
+    auraMove 10s ease infinite alternate;
+
+  z-index:-4;
+}
+
+
+
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
+
+.particles{
+
+  position:fixed;
+
+  inset:0;
+
+  overflow:hidden;
+
+  z-index:-3;
+}
+
+
+
+.particles span{
+
+  position:absolute;
+
+  width:4px;
+  height:4px;
+
+  border-radius:50%;
+
+  background:#8efcff;
+
+  box-shadow:
+
+    0 0 10px cyan,
+
+    0 0 25px cyan,
+
+    0 0 60px #00ffee;
+
+  animation:
+    particlesFloat linear infinite;
+}
+
+
+
+/* =========================================
+   FLOATING CIRCLES
+========================================= */
+
+.circle{
+
+  position:absolute;
+
+  border-radius:50%;
+
+  background:
+    rgba(0,255,255,0.12);
+
+  box-shadow:
+
+    0 0 25px rgba(0,255,255,0.5),
+
+    0 0 60px rgba(0,255,255,0.25);
+
+  animation:
+    circleFloat linear infinite;
+}
+
+
+
+/* =========================================
+   FLOATING SQUARES
+========================================= */
+
+.square{
+
+  position:absolute;
+
+  background:
+    rgba(0,255,255,0.08);
+
+  border:
+    1px solid rgba(0,255,255,0.22);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+
+    0 0 35px rgba(0,255,255,0.15);
+
+  animation:
+    squareFloat linear infinite;
+}
+
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero{
+
+  min-height:100vh;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  position:relative;
+
+  z-index:10;
+
+  padding:40px;
+}
+
+
+
+/* =========================================
+   GLASS PANEL
+========================================= */
+
+.hero::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:90%;
+  height:85%;
+
+  border-radius:40px;
+
+  background:
+
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.05),
+      rgba(255,255,255,0.02)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(25px);
+
+  box-shadow:
+
+    inset 0 0 20px rgba(255,255,255,0.03),
+
+    0 0 100px rgba(0,255,255,0.06);
+
+  z-index:-1;
+}
+
+
+
+/* =========================================
+   MOMENTUM LOGO
+========================================= */
+
+.logo{
+
+  font-size:8rem;
+
+  font-weight:800;
+
+  letter-spacing:4px;
+
+  color:white;
+
+  text-shadow:
+
+    0 0 10px cyan,
+
+    0 0 30px cyan,
+
+    0 0 80px rgba(0,255,255,0.4);
+
+  animation:
+    logoFloat 5s ease-in-out infinite;
+}
+
+
+
+/* =========================================
+   CAPTION
+========================================= */
+
+.caption{
+
+  margin-top:15px;
+
+  color:#8efcff;
+
+  letter-spacing:4px;
+
+  font-size:1rem;
+}
+
+
+
+/* =========================================
+   MAIN TEXT
+========================================= */
+
+.main-text{
+
+  margin-top:35px;
+
+  color:white;
+
+  font-size:4rem;
+
+  max-width:900px;
+
+  line-height:1.1;
+
+  animation:
+    textFloat 5s ease-in-out infinite;
+}
+
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.start-btn{
+
+  margin-top:55px;
+
+  padding:22px 80px;
+
+  border:none;
+
+  border-radius:80px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      #00e5ff,
+      #00ffaa
+    );
+
+  color:#02131f;
+
+  font-size:1rem;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  transition:0.45s;
+
+  position:relative;
+
+  overflow:hidden;
+
+  box-shadow:
+
+    0 0 25px rgba(0,255,255,0.55),
+
+    0 0 80px rgba(0,255,255,0.25);
+}
+
+
+
+/* BUTTON HOVER */
+
+.start-btn:hover{
+
+  transform:
+    scale(1.08)
+    translateY(-5px);
+
+  box-shadow:
+
+    0 0 45px rgba(0,255,255,0.9),
+
+    0 0 120px rgba(0,255,255,0.45);
+}
+
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features{
+
+  display:flex;
+
+  gap:30px;
+
+  margin-top:70px;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+}
+
+
+
+/* =========================================
+   FEATURE CARDS
+========================================= */
+
+.feature-card{
+
+  width:270px;
+
+  padding:32px;
+
+  border-radius:30px;
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(0,255,255,0.12);
+
+  backdrop-filter:blur(18px);
+
+  color:white;
+
+  transition:0.5s;
+
+  box-shadow:
+
+    0 0 30px rgba(0,255,255,0.08);
+
+  animation:
+    cardFloat 5s ease-in-out infinite;
+}
+
+
+
+/* CARD HOVER */
+
+.feature-card:hover{
+
+  transform:
+
+    translateY(-15px)
+
+    scale(1.05);
+
+  box-shadow:
+
+    0 0 50px rgba(0,255,255,0.25),
+
+    0 0 120px rgba(0,255,255,0.15);
+}
+
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard{
+
+  display:none;
+
+  min-height:100vh;
+
+  padding:80px;
+
+  color:white;
+
+  z-index:20;
+}
+
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes gridMove{
+
+  from{
+
+    background-position:
+      0px 0px,
+      0px 0px;
+
+  }
+
+  to{
+
+    background-position:
+      0px 140px,
+      140px 0px;
+
+  }
+}
+
+
+
+@keyframes auraMove{
+
+  0%{
+
+    transform:
+      scale(1)
+      translate(0px,0px);
+
+  }
+
+  100%{
+
+    transform:
+      scale(1.15)
+      translate(50px,-30px);
+
+  }
+}
+
+
+
+@keyframes particlesFloat{
+
+  from{
+
+    transform:
+      translateY(110vh);
+
+    opacity:0;
+
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  100%{
+
+    transform:
+      translateY(-120vh)
+      translateX(120px);
+
+    opacity:0;
+
+  }
+}
+
+
+
+@keyframes circleFloat{
+
+  from{
+
+    transform:
+      translateY(100vh)
+      scale(0.7);
+
+  }
+
+  to{
+
+    transform:
+      translateY(-120vh)
+      scale(1.3);
+
+  }
+}
+
+
+
+@keyframes squareFloat{
+
+  from{
+
+    transform:
+      translateY(100vh)
+      rotate(0deg);
+
+  }
+
+  to{
+
+    transform:
+      translateY(-120vh)
+      rotate(360deg);
+
+  }
+}
+
+
+
+@keyframes logoFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+
+
+@keyframes textFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+
+
+@keyframes cardFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+  .logo{
+    font-size:4.5rem;
+  }
+
+  .main-text{
+    font-size:2.3rem;
+  }
+
+  .features{
+    flex-direction:column;
+    align-items:center;
+  }
+
+}
+
+.dashboard.show{
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:40px;
+  animation:
+    dashboardEnter 1.2s ease forwards;
+}
+
+.dashboard-boxes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+  margin-top:40px;
+}
+
+.hero.hide{
+  animation:
+    heroExit 1s ease forwards;
+}
+
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+}
+
+.flash.active{
+  animation:
+    flashAnim 0.8s ease;
+}
+
+@keyframes heroExit{
+  0%{
+    opacity:1;
+    transform:
+      scale(1);
+
+    filter:blur(0px);
+  }
+
+  100%{
+    opacity:0;
+    transform:
+      scale(1.15);
+    filter:blur(15px);
+  }
+}
+
+@keyframes dashboardEnter{
+  from{
+    opacity:0;
+
+    transform:
+      translateY(80px)
+      scale(1.05);
+
+    filter:blur(15px);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+      translateY(0px)
+      scale(1);
+
+    filter:blur(0px);
+  }
+}
+
+@keyframes flashAnim{
+
+  0%{
+    opacity:0;
+  }
+
+  20%{
+    opacity:0.18;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+
+
+.todo-page{
+  
+  position:fixed;
+
+  inset:0;
+
+  background:
+  rgba(2, 4, 10, 0.82);
+
+  display:none;
+
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  z-index:999;
+
+  overflow:hidden;
+}
+
+/*SHOWTODO*/
+
+.todo-page.show{
+  display:flex;
+
+  animation:
+    todoReveal 1.2s ease forwards;
+}
+
+.motivation-box{
+
+  text-align:center;
+
+  animation:
+    motivationnter2s ease;
+}
+
+.motivation-title{
+
+  font-size:6rem;
+  color:white;
+  text-shadow:
+    0 0 20px syan,
+    0 0 60px cyan;
+
+  animation:
+    glowPulse 2s infinite;
+}
+
+.motivatioin-text{
+  margin-top:20px;
+
+  font-size:1.2rem;
+
+  color:#dffcff !important;
+
+  opacity:0.95 !important;
+
+  letter-spacing:2px;
+
+  text-shadow:
+    0 0 10px rgba(0,255,255,255,0.3);
+    
+}
+
+.todo-content{
+  margin-top:80px;
+
+  display:flex;
+
+  flex-direction: column;
+
+  gap:20px;
+
+  align-items:center;
+}
+
+.todo-content input{
+  width:320px;
+
+  padding:18px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+   rgba(255,255,225,0.06);
+
+  border:
+    1px solid rgba(158, 184, 184, 0.842);
+
+  color:white !important;
+
+  outline:none;
+
+  backdrop-filter:blur(50px);
+}
+
+.todo-content button{
+  padding:16px 50px;
+
+  border:none;
+
+  border-radius:50px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #00e5ff,
+      #00ffaa
+    );
+  font-weight:700;
+
+  cursor:pointer;
+}
+
+@keyframes todoReveal{
+  from{
+    opacity:0;
+
+    transform:
+      scale(1.1);
+  }
+  
+  to{
+    opacity:1;
+
+    transform:
+      scale(1);
+  }
+}
+
+@keyframes motivationEnter{
+  from{
+    opacity:0;
+
+    transform:
+      translateY(60px);
+  }
+}
+
+@keyframes glowPulse{
+
+  0%{
+    text-shadow:
+      0 0 20px cyan,
+      0 0 60px cyan;
+  }
+
+  50%{
+    text-shadow:
+      0 0 35px cyan,
+      0 0 120px cyan;
+  }
+
+  100%{
+    text-shadow:
+      0 0 20px cyan,
+      0 0 60px cyan;
+  }
+}
+
+
+
+.fireflies{
+  position:fixed;
+  inset:0;
+  overflow: hidden;
+  pointer-events:none;
+  z-index:-2;
+}
+
+.fireflies span{
+  position:absolute;
+  border-radius:50%;
+  background:#8fffe1;
+
+  box-shadow:
+    0 0 6px #8fffe1,
+    0 0 12px #8fffe1,
+    0 0 20px #8fffe1;
+
+  animation: float infinite ease-in-out alternate;
+
+}
+
+.fireflies.small{
+  width:2px;
+  height:2px;
+  opacity:0.5;
+}
+
+.firfiles.medium{
+  width:4px;
+  height:4px;
+  opacity:0.7;
+}
+
+.fireflies.big{
+  width:7px;
+  height:7px;
+  opacity:1;
+}
+
+.fireflies span:nth-child(1){
+  top:10%;
+  left:15%;
+  animation-duration:12s;
+}
+
+.fireflies span:nth-child(2){
+  top:30%;
+  left:70%;
+  animation-duration:18s;
+}
+
+.fireflies span:nth-child(3){
+  top:80%;
+  left:20%;
+  animation-duration:10s;
+}
+
+.fireflies span:nth-child(4){
+  top:60%;
+  left:40%;
+  animation-duration:16s;
+}
+
+.fireflies span:nth-child(5){
+  top:75%;
+  left:85%;
+  animation-duration:20s;
+}
+.firefiles span:nth-child(6){
+  top:75%;
+  left:65%;
+  animation-duration:13s;
+}
+.firefiles span:nth-child(7){
+  top:45%;
+  left:10%;
+  animation-duration: 17s;
+}
+.firefles span:nth-child(8){
+  top:90%;
+  left:50%;
+  animation-duration: 11s;
+}
+.firefles span:nth-child(9){
+  top:15%;
+  left:55%;
+  animation-duration: 22s;
+}
+.fireflies span:nth-child(10){
+  top:55;
+  left:80%;
+  animation-duration:19s;
+}
+.fireflies span:nth-child(11){
+  top:35%;
+  left:25;
+  animation-duration: 14s;
+}
+.fireflies span:nth-child(12){
+  top:70%;
+  left:90%;
+  animation-duration: 19s;
+}
+
+
+@keyframes float{
+
+    0%{
+      transform:
+      translateY(0px)
+      translateY(0px);
+    }
+
+    50%{
+      transform: 
+      translateY(-40px)
+      translateY(20px);
+    }
+
+    100%{
+      transform:
+      translateY(30px)
+      translateY(-15px);
+    }
+}
+
+#taskList{
+  margin-top:25px;
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+#taskList li{
+  padding:18px 25px;
+  min-width:320px;
+  border-radius:18px;
+  background:
+    rgba(255,255,255,0.08);
+  color:white;
+
+  backdrop-filter:blur(15px);
+
+  border:
+    1px solid rgba(0,255,255,0.08);
+  
+  animation:
+    taskEnter 0.5s ease;
+
+
+}
+
+
+
+@keyframes taskEnter{
+  from{
+    opacity:0;
+
+    transform:
+      translateY(20px)
+      scale(0.9);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0px)
+      scale(1);
+
+  }
+}
+

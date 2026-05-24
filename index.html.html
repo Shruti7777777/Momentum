@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Momentum</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+</head>
+
+
+
+<body>
+
+  <div class="fireflies">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+
+  <!-- FLOATING ORBS -->
+
+  <div class="orb orb1"></div>
+
+  <div class="orb orb2"></div>
+
+  <div class="orb orb3"></div>
+
+
+  <!-- PARTICLES -->
+
+  <div class="particles">
+
+    <span style="left:10%; animation-duration:12s;"></span>
+
+    <span style="left:20%; animation-duration:18s;"></span>
+
+    <span style="left:35%; animation-duration:14s;"></span>
+
+    <span style="left:50%; animation-duration:20s;"></span>
+
+    <span style="left:65%; animation-duration:16s;"></span>
+
+    <span style="left:80%; animation-duration:22s;"></span>
+
+    <span style="left:90%; animation-duration:15s;"></span>
+
+  </div>
+
+
+  <!-- HERO PAGE -->
+  <div class="hero" id="hero">
+    
+  <div class="grid-overlay"></div>
+
+    <h1 class="logo">
+      Momentum
+    </h1>
+
+    <p class="caption">
+      BUILD DISCIPLINE • BUILD YOUR FUTURE
+    </p>
+
+    <h2 class="main-text">
+      The Ultimate Productivity Experience
+    </h2>
+
+    <!-- BUTTON -->
+
+    <button class="start-btn"
+            id="getStarted">
+
+      Get Started
+
+    </button>
+
+
+    <!-- FEATURES -->
+
+    <div class="features">
+
+      <div class="feature-card">
+
+        <h3>Focus Timer</h3>
+
+        <p>
+          Deep work sessions with cinematic focus mode.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <h3>Smart Tasks</h3>
+
+        <p>
+          Organize your workflow beautifully and efficiently.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <h3>Momentum Streak</h3>
+
+        <p>
+          Build habits and stay consistent every day.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- DASHBOARD -->
+
+  <div class="dashboard"
+       id="dashboard">
+
+
+
+    <h1>
+      Welcome 🚀
+    </h1>
+
+
+
+    <div class="dashboard-boxes">
+
+
+
+      <!-- TO DO LIST -->
+
+      <div class="feature-card"
+            id="todoCard">
+
+        <h2>To-Do List</h2>
+
+        <p>
+          Plan your day and complete tasks efficiently.
+        </p>
+
+      </div>
+
+
+
+      <!-- POMODORO -->
+
+      <div class="feature-card">
+
+        <h2>Pomodoro Timer</h2>
+
+        <p>
+          Stay focused using deep work sessions.
+        </p>
+
+      </div>
+
+
+
+      <!-- STREAK -->
+
+      <div class="feature-card">
+
+        <h2>Daily Streak</h2>
+
+        <p>
+          Keep your productivity streak alive 
+        </p>
+
+      </div>
+
+
+      <!-- NOTES -->
+
+      <div class="feature-card">
+
+        <h2>Quick Notes</h2>
+
+        <p>
+          Save important ideas instantly.
+        </p>
+
+      </div>
+
+
+
+      <!-- GOALS -->
+
+      <div class="feature-card">
+
+        <h2>Goals</h2>
+
+        <p>
+          Track your long-term growth journey.
+        </p>
+
+      </div>
+
+
+
+      <!-- ANALYTICS -->
+
+      <div class="feature-card">
+
+        <h2>Analytics</h2>
+
+        <p>
+          Visualize your productivity progress beautifully.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+<!---TODO PAGE-->
+
+<div class="todo-page"
+      id="todoPage">
+    <div class="motivation-box">
+      <h1 class="motivation-title">
+        LOCK IN
+      </h1>
+
+      <p class="motivation-text"
+      style="color:#b8f3ff; text-shadow:0 0 15px #59e1ff; opacity:1;">
+        Small steps every day create unstoppable momentum.
+      </p>
+
+    </div>
+
+<!--TO DO CONTENT-->
+<div class="todo-content">
+
+    <h2 style="
+      color:#b8f3ff;
+      text-shadow:0 0 18px #59e1ff;
+      font-size:2.4rem;
+      letter-spacing:1px;
+      ">
+      Your Task
+    </h2>
+
+
+    <input 
+    type="text"
+    id="taskInput"
+    placeholder="Enter a task...">
+
+    <button id="addTaskBtn">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+  </div>
+
+</div>
+
+
+
+
+  <!-- FLASH EFFECT -->
+
+  <div class="flash"
+       id="flash"></div>
+
+
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const btn =
+      document.getElementById("getStarted");
+
+    const hero =
+      document.getElementById("hero");
+
+    const dashboard =
+      document.getElementById("dashboard");
+
+    const flash =
+      document.getElementById("flash");
+
+    const todoCard =
+      document.getElementById("todoCard");
+
+
+    const todoPage=
+      document.getElementById("todoPage")
+
+
+
+
+
+    btn.addEventListener("click", () => {
+
+      // FLASH
+
+      flash.classList.add("active");
+
+      // HERO EXIT
+
+      hero.classList.add("hide");
+
+
+
+      setTimeout(() => {
+
+        hero.style.display = "none";
+
+
+
+        // SHOW DASHBOARD
+
+        dashboard.classList.add("show");
+
+
+
+      }, 1000);
+
+    todoCard.addEventListener("click",() =>{
+
+      dashboard.style.display = "none";
+
+      todoPage.classList.add("show");
+    });
+  });
+
+
+
+
+  const taskInput =
+  document.getElementById("taskInput");
+
+  const addTaskBtn = 
+  document.getElementById("addTaskBtn");
+
+  const taskList =   
+  document.getElementById("taskList");
+
+  /* LOAD SAVED TASKS WHEN PAGE OPENS*/
+  window.onload = function () {
+
+    const savedTasks =
+  JSON.parse(localStorage.getItem("tasks"))
+  || [];
+   
+    savedTasks.forEach(task => {
+      createTasks(task);
+    });
+  
+  };
+
+
+  addTaskBtn.addEventListener("click",
+  function () {
+
+    const taskText =
+  taskInput.value.trim();
+    
+    if (taskText === ""){
+      return;
+    }
+    createTask(taskText);
+
+    saveTask(taskText);
+
+    taskInput.value = "";
+  });
+
+  function createTask(taskText){
+
+    const li =  
+  document.createElement("li");
+
+    li.textContent = taskText;
+
+    taskList
+  }
+  
+  
+    
+    
+
+  </script>
+
+</body>
+</html>
