@@ -284,9 +284,7 @@
     </h2>
 
 
-    <input 
-    type="text"
-    id="taskInput"
+    <input type="text" id="taskInput"
     placeholder="Enter a task...">
 
     <button id="addTaskBtn">Add Task</button>
@@ -311,6 +309,8 @@
 
   <script>
 
+    console.log("JS WORKING");
+
     const btn =
       document.getElementById("getStarted");
 
@@ -332,8 +332,6 @@
 
 
 
-
-
     btn.addEventListener("click", () => {
 
       // FLASH
@@ -343,7 +341,6 @@
       // HERO EXIT
 
       hero.classList.add("hide");
-
 
 
       setTimeout(() => {
@@ -371,6 +368,7 @@
 
 
 
+
   const taskInput =
   document.getElementById("taskInput");
 
@@ -392,7 +390,6 @@
     });
   
   };
-
 
   addTaskBtn.addEventListener("click",
   function () {
@@ -427,6 +424,7 @@
   ||[];
 
     tasks.push(task);
+
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
   
@@ -436,3 +434,6 @@
 
 </body>
 </html>
+
+
+
