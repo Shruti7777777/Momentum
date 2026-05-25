@@ -310,6 +310,8 @@
   <script>
 
     console.log("JS WORKING");
+    
+
 
     const btn =
       document.getElementById("getStarted");
@@ -381,25 +383,25 @@
   /* LOAD SAVED TASKS WHEN PAGE OPENS*/
   window.onload = function () {
 
-    const savedTasks =
+    let tasks =
   JSON.parse(localStorage.getItem("tasks"))
-  || [];
-   
-    savedTasks.forEach(task => {
-      createTasks(task);
+  ||[];
+
+    tasks.forEach(task =>{
+      createTask(task);
     });
-  
+
   };
 
-  addTaskBtn.addEventListener("click",
-  function () {
+  addTaskBtn.addEventListener("click",function (){
 
     const taskText =
   taskInput.value.trim();
     
-    if (taskText === ""){
+    if (taskText === "") {
       return;
     }
+
     createTask(taskText);
 
     saveTask(taskText);
@@ -407,29 +409,53 @@
     taskInput.value = "";
   });
 
-  function createTask(taskText){
+  function createTask(taskText) {
 
-    const li =  
+    const li =
   document.createElement("li");
 
     li.textContent = taskText;
+    // DELETE
+    const deleteBtn =
+  document.createElement("button");
 
+    deleteBtn.textContent = "Delete";
+
+    //CLICK
+    deleteBtn.addEventListener("click",function(){
+
+      li.remove();
+
+      removeTask(taskText);
+    });
+
+    li.appendChild(deleteBtn);
     taskList.appendChild(li);
+
   }
 
-  function saveTask(task){
+  function saveTask(task) {
 
-    letTasks =
-  JSON.parse(localStorage.getItem("tasks"))
-  ||[];
+    let tasks =
+  JSON.parse(localStorage.getItem("tasks")) ||[];
 
     tasks.push(task);
 
-    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+
+  }
+
+  function removeTask(taskText) {
+
+    let Tasks =
+  JSON.parse(localStorage.getItem("tasks"))
+  ||[];
+
+    tasks = tasks.filter(task => task !== taskText);
+
+    localStorage.setItem("tasks",JSON.stringify(tasks));
   }
   
-
-    
   </script>
 
 </body>
