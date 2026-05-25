@@ -417,13 +417,21 @@
 
     li.textContent = taskText;
 
-    taskList
+    taskList.appendChild(li);
+  }
+
+  function saveTask(task){
+
+    letTasks =
+  JSON.parse(localStorage.getItem("tasks"))
+  ||[];
+
+    tasks.push(task);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
   
-  
-    
-    
 
+    
   </script>
 
 </body>
