@@ -415,9 +415,12 @@
   document.createElement("li");
 
     li.textContent = taskText;
+
     // DELETE
     const deleteBtn =
-  document.createElement("button");
+    document.createElement("button");
+
+    deleteBtn.classList.add("delete-btn");
 
     deleteBtn.textContent = "Delete";
 
