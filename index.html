@@ -409,6 +409,8 @@
     taskInput.value = "";
   });
 
+
+
   function createTask(taskText) {
 
     const li =
@@ -418,11 +420,38 @@
 
     // DELETE
     const deleteBtn =
-    document.createElement("button");
-
-    deleteBtn.classList.add("delete-btn");
+  document.createElement("button");
 
     deleteBtn.textContent = "Delete";
+
+    deleteBtn.style.margnLeft ="10px";
+
+    deleteBtn.onclick = function () {
+
+      li.remove();
+
+      removeTask(taskText);
+    };
+
+    li.appendChild(deleteBtn);
+
+    taskList.appendChild(li);
+
+  }
+
+
+  function removeTask(taskText) {
+
+    let tasks =
+  JSON.parse(localStorage.getItem("tasks"))
+  ||[];
+
+    tasks = tasks.filter(task => task !== taskText);
+
+    localStorage.setItem("tasks",JSON.stringify(tasks));
+  }
+
+    
 
     //CLICK
     deleteBtn.addEventListener("click",function(){
@@ -435,7 +464,7 @@
     li.appendChild(deleteBtn);
     taskList.appendChild(li);
 
-  }
+  
 
   function saveTask(task) {
 
@@ -448,16 +477,7 @@
 
   }
 
-  function removeTask(taskText) {
 
-    let Tasks =
-  JSON.parse(localStorage.getItem("tasks"))
-  ||[];
-
-    tasks = tasks.filter(task => task !== taskText);
-
-    localStorage.setItem("tasks",JSON.stringify(tasks));
-  }
   
   </script>
 
