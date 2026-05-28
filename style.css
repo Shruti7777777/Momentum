@@ -1128,8 +1128,123 @@ body::before{
 }
 
 
+#taskList li button{
+
+  pointer-events:auto;
+
+  cursor:pointer;
+
+  z-index:1000;
+
+  position:relative;
+
+}
+
+#taskList li{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+
+}
 
 
 
 
+
+
+.todo-page{
+
+
+  min-height:100vh;
+
+  position:relative;
+
+  overflow:hidden;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.72),
+    rgba(0,0,0,0.78)
+    ),
+
+url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat: no-repeat;
+
+  backdrop-filter: blur(20px);
+
+  background-attachment:fixed;
+
+  animation: bgMove 18s ease-in-out infinite;
+
+}
+
+@keyframes bgMove{
+
+  0%{
+    background-position:center top;
+  }
+
+  50%{
+    background-position:center bottom;
+  }
+
+  100%{
+    background-position:center top;
+  }
+
+}
+
+.todo-page::before{
+
+  content:"";
+
+  position:fixed;
+
+  inset:0;
+
+  border:4px solid
+rgba(255,255,255,0.12);
+
+  box-shadow:
+
+  0 0 25px #8ffcff,
+  0 0 50px #7a5cff,
+
+  inset 0 0 25px #8ffcff;
+
+  animation:borderGlow 4s linear infinite;
+
+}
+
+@keyframes borderGlow{
+
+  0%{
+    filter:hue-rotate(0deg);
+  }
+
+  100%{
+    filter:hue-rotate(360deg);
+  }
+
+}
+
+.fireflies{
+
+  position:absolute;
+
+  inset:0;
+
+  z-index:2;
+
+  pointer-events:none;
+}
 
