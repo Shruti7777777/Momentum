@@ -1179,3 +1179,29 @@ body::before{
   }
   
 }
+
+
+.confetti{
+
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: yellow;
+  pointer-events: none;
+  animation: fall 2s linear forwards;
+  z-index: 99999;
+
+}
+
+@keyframes fall{
+  from{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+
+  to{
+    transform:translateY(30px) rotate(720deg);
+    opacity: 0;
+  }
+
+}
