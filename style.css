@@ -1155,54 +1155,34 @@ body::before{
 
 .completed{
   text-decoration: line-through;
-  opacity:0.6;
+  opacity:0.7;
+  transition:  all 0.4s ease;
 }
 
-.confetti{
-  position:fixed;
-  font-size:24px;
-  pointer-events:none;
-  animation: confettiFall 1s ease-in-out forwards;
+.succcess-burst{
+  animation: successBurst 1s ease-in-out;
 }
 
-@keyframes confettiFall{
+@keyframes successBurst{
 
   0%{
-    transform:trasnlateY(0 )scale(1);
-    opacity:1;
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.15);
+    background: rgba(89,255,255,0.3);
+    box-shadow:
+        0 0 20px #59e1ff,
+        0 0 40px #59e1ff,
+        0 0 60px #59e1ff,
   }
 
   100%{
-    transform:translateY(-100px)
-  scale(1.5);
-    opacity:0;
+    transform: scale(1);
   }
-  
-}
-
-
-.confetti{
-  position: fixed;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-  animation: fall 4s linear forwards;
-  z-index: 99999;
 
 }
 
-@keyframes fall{
-    0%{
-      transform: translateY(0)
-    rotate(0deg);
-      opacity: 1;
 
-    }
 
-    100%{
-      transform: translateY(600px)
-    rotate(180deg);
-      opacity: 0;
-    }
-
-}

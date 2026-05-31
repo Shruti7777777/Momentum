@@ -436,13 +436,17 @@
 
       taskSpan.classList.toggle("completed");
       
-      li.classList.add("source-burst");
+      li.classList.remove("success-burst");
 
-      setTimeout(() => {
-        li.classList.remove("sucess-burst");
-      }, 800);
+      void li.offsetWidth;
+
+      li.classList.add("success-burst");
+
+      
 
     };
+
+
 
     /* Delete Button */
     const deleteBtn = 
