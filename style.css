@@ -1153,145 +1153,29 @@ body::before{
 
 
 
-
-
-
-.todo-page{
-
-  position:relative;
-
-  overflow: hidden;
-
-  background:
-  linear-gradient(
-  135deg,
-  #050816,
-  #050816,
-  #0b1026,
-  );
-  
+.completed{
+  text-decoration: line-through;
+  opacity:0.6;
 }
 
-@keyframes bgMove{
+.confetti{
+  position:fixed;
+  font-size:24px;
+  pointer-events:none;
+  animation: confettiFall 1s ease-in-out forwards;
+}
+
+@keyframes confettiFall{
 
   0%{
-    background-position:center top;
-  }
-
-  50%{
-    background-position:center bottom;
+    transform:trasnlateY(0 )scale(1);
+    opacity:1;
   }
 
   100%{
-    background-position:center top;
+    transform:translateY(-100px)
+  scale(1.5);
+    opacity:0;
   }
-
+  
 }
-
-.todo-page::before{
-
-   position:absolute;
-
-  content:"";
-
-  top: -120px;
-  left:-120px;
-
-  width:320px;
-  height:320px;
-
-  background:
-  radial-gradient(circle,
-  rgba(255,120,200,0.35),
-  transparent 70%);
-
-  border-radius: 50%;
-
-  filter:blur(50px);
-
-  animation:flowerMove1 10s ease-in-out infinite;
-
-}
-
-.todo-page::after{
-
-  content:"";
-
-  position:absolute;
-
-  bottom:-120px;
-  right:-120px;
-
-  width:340px;
-  height:340px;
-
-  background:
-  radial-gradient(circle,
-  rgba(120,180,255,0.32),
-  transparent 70%);
-
-  border-radius:50%;
-
-  filter:blur(50px);
-
-  animation:flowerMove2 12s ease-in-out infinite;
-}
-
-.petals{
-  position:absolute;
-
-  inset:0;
-
-  pointer-events:none;
-
-}
-
-.petals{
-
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  border-radius:50%;
-
-  filter:blur(40px);
-
-  opacity:0.25;
-
-}
-
-.p1{
-
-  top:15%;
-  left:-60px;
-
-  background:
-  radial-gradiant(circle,
-  rgba(255,120,180,0.45),
-  transparent 70%);
-
-  animation:flowerMove1 8s ease-in-out infinite;
-
-}
-
-.p2{
-
-  bottom:10%;
-  right:-60px;
-
-  background:
-  radial-gradient(circle,
-  rgba(130,170,2550.0.4),
-  transparent 70%);
-
-  animation: flowerMove2 10s ease-in-out infinite;
-
-.p3{
-
-  top:45%;
-  right:-40px;
-}
-
-}
-
