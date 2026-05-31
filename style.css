@@ -1182,26 +1182,27 @@ body::before{
 
 
 .confetti{
-
   position: fixed;
-  width: 12px;
-  height: 12px;
-  background: yellow;
+  width: 14px;
+  height: 14px;
   pointer-events: none;
-  animation: fall 2s linear forwards;
+  animation: fall 4s linear forwards;
   z-index: 99999;
 
 }
 
 @keyframes fall{
-  from{
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
+    0%{
+      transform: translateY(0)
+    rotate(0deg);
+      opacity: 1;
 
-  to{
-    transform:translateY(30px) rotate(720deg);
-    opacity: 0;
-  }
+    }
+
+    100%{
+      transform: translateY(600px)
+    rotate(180deg);
+      opacity: 0;
+    }
 
 }
