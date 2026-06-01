@@ -1155,6 +1155,32 @@ body::before{
 
 .completed{
   text-decoration: line-through;
+  color: #59e1ff;
+  text-shadow:
+    0 0 10px #59e1ff,
+    0 0 20px #59e1ff;
+  transition: all 0.4s ease;
+
+}
+
+.complete-flash{
+  animation:completeFlash 0.8s ease;
+}
+
+@keyframes completeFlash{
+
+  0%{
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.25);
+    background: #00ffd5;
+  }
+
+  100%{
+    transform: scale(1);
+  }
   
-
-
+}
+  
