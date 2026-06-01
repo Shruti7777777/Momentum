@@ -1155,34 +1155,6 @@ body::before{
 
 .completed{
   text-decoration: line-through;
-  opacity:0.7;
-  transition:  all 0.4s ease;
-}
-
-.succcess-burst{
-  animation: successBurst 1s ease-in-out;
-}
-
-@keyframes successBurst{
-
-  0%{
-    transform: scale(1);
-  }
-
-  50%{
-    transform: scale(1.15);
-    background: rgba(89,255,255,0.3);
-    box-shadow:
-        0 0 20px #59e1ff,
-        0 0 40px #59e1ff,
-        0 0 60px #59e1ff,
-  }
-
-  100%{
-    transform: scale(1);
-  }
-
-}
-
+  
 
 
