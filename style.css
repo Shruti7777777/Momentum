@@ -1183,4 +1183,8 @@ body::before{
   }
   
 }
+
+.pomodoro-page{
+  display:none;
+}
   

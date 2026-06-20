@@ -342,7 +342,6 @@ id="pomodoroPage">
   <script>
 
     console.log("JS WORKING");
-    
 
 
     const btn =
@@ -364,6 +363,11 @@ id="pomodoroPage">
     const todoPage=
       document.getElementById("todoPage")
 
+    const pomodoroCard =
+    document.getElementById("pomodoroCard");
+
+    const pomodoroPage =
+    document.getElementById("pomodoroPage");
 
 
     btn.addEventListener("click", () => {
@@ -399,7 +403,13 @@ id="pomodoroPage">
     });
   });
 
+    pomodoroCard.addEventListener("click", () =>{
 
+      dashboard.style.display = "none";
+
+      pomodoroPage.classList.add("show");
+
+    });
 
 
 
