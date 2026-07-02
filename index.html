@@ -187,6 +187,7 @@
 <div class="feature-card" id="pomodoro-card">
     <h2>🍅 Pomodoro Timer</h2>
     <p>Stay focused using deep work sessions.</p>
+
 </div>
 
 
@@ -208,46 +209,17 @@
       </div>
 
 
-      <!-- NOTES -->
+      
+/analyticsCard**/
+      <div class="feature-card" id="analyticsCard">
 
-      <div class="feature-card">
+    <h2>Analytics</h2>
 
-        <h2>Quick Notes</h2>
+    <p>
+        Visualize your productivity progress beautifully.
+    </p>
 
-        <p>
-          Save important ideas instantly.
-        </p>
-
-      </div>
-
-
-
-      <!-- GOALS -->
-
-      <div class="feature-card">
-
-        <h2>Goals</h2>
-
-        <p>
-          Track your long-term growth journey.
-        </p>
-
-      </div>
-
-
-
-      <!-- ANALYTICS -->
-
-      <div class="feature-card" id="analyticsCard"></div>
-
-        <h2>Analytics</h2>
-
-        <p>
-          Visualize your productivity progress beautifully.
-        </p>
-
-      </div>
-
+</div>
     </div>
 
   </div>
@@ -304,7 +276,14 @@
 
         <div id="timer">25:00</div>
 
-        <div class="mode-buttons">
+<!-- Progress Bar -->
+<div class="progress-bar">
+    <div class="progress" id="progress"></div>
+</div>
+
+<div class="mode-buttons">
+
+</div>
 
             <button id="workBtn">Work</button>
 
@@ -508,11 +487,22 @@ let running = false;
 
 const timerDisplay = document.getElementById("timer");
 
+const progress = document.getElementById("progress");
+let totalSeconds = 25 * 60;
+
 function updateTimer() {
+
     timerDisplay.textContent =
         String(minutes).padStart(2, "0") +
         ":" +
         String(seconds).padStart(2, "0");
+
+    let remaining = minutes * 60 + seconds;
+
+    let percent = (remaining / totalSeconds) * 100;
+
+    progress.style.width = percent + "%";
+
 }
 
 updateTimer();
@@ -566,7 +556,7 @@ document.getElementById("resetBtn").addEventListener("click", () => {
     minutes = 25;
     seconds = 0;
 
-    updateTimer();
+updateTimer();
 
 });
 
@@ -577,6 +567,8 @@ document.getElementById("workBtn").addEventListener("click", () => {
 
     minutes = 25;
     seconds = 0;
+    totalSeconds = 25 * 60;
+
 
     updateTimer();
 
@@ -589,6 +581,8 @@ document.getElementById("shortBtn").addEventListener("click", () => {
 
     minutes = 5;
     seconds = 0;
+    totalSeconds = 5 * 60;
+
 
     updateTimer();
 
@@ -601,8 +595,9 @@ document.getElementById("longBtn").addEventListener("click", () => {
 
     minutes = 15;
     seconds = 0;
+    totalSeconds = 15 * 60;
 
-    updateTimer();
+updateTimer();
 
 });
 
