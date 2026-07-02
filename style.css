@@ -1182,9 +1182,158 @@ body::before{
     transform: scale(1);
   }
   
+
+
+
+
+
+}
+  .pomodoro-page{
+    display:none;
 }
 
-.pomodoro-page{
-  display:none;
+.pomodoro-page.show{
+    display:flex;
 }
-  
+
+
+.pomodoro-page{
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+}
+
+.pomodoro-page.show{
+
+    display:flex;
+
+}
+
+.pomodoro-container{
+
+    text-align:center;
+
+    color:white;
+
+}
+
+#timer{
+    font-size:90px;
+    font-weight:bold;
+    color:white;
+    transition:0.4s ease;
+}
+
+#timer.running{
+    color:#00ff88;
+
+    text-shadow:
+        0 0 10px #00ff88,
+        0 0 25px #00ff88,
+        0 0 50px #00ff88;
+
+    animation:pulse 1s infinite alternate;
+}
+
+@keyframes pulse{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.06);
+    }
+
+}
+
+@keyframes pulse{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.06);
+}
+
+}
+
+.mode-buttons,
+.control-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+    margin-top:20px;
+
+}
+
+.mode-buttons button,
+.control-buttons button{
+
+    padding:12px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+button{
+
+padding:14px 25px;
+border:none;
+border-radius:15px;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+backdrop-filter:blur(15px);
+
+transition:.3s;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 0 20px cyan;
+
+background:#00e1ff;
+
+color:black;
+
+}
+
+.pomodoro-container{
+
+animation:float 5s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+}

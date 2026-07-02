@@ -184,17 +184,15 @@
 
       <!-- POMODORO -->
 
-<div class="feature-card" id="pomodoroCard">
+<div class="feature-card" id="pomodoro-card">
+    <h2>🍅 Pomodoro Timer</h2>
+    <p>Stay focused using deep work sessions.</p>
+</div>
 
-  <h2>Pomodoro Timer</h2>
 
-  <p>
-    Stay focused using deep work sessions.
-  </p>
+
 
 </div>
-      
-
 
 
       <!-- STREAK -->
@@ -240,7 +238,7 @@
 
       <!-- ANALYTICS -->
 
-      <div class="feature-card" id="pomodoroCard">
+      <div class="feature-card" id="analyticsCard"></div>
 
         <h2>Analytics</h2>
 
@@ -295,31 +293,43 @@
 </div>
 
 
-<div class="pomodoro-page"
-id="pomodoroPage">
 
-  <div class="motivation-box">
-    <h1 class="motivation-title">FOCUS MODE</h1>
+<!-- POMODORO PAGE -->
 
-    <p class="motivationtext">
-      Focus on today,tomorrow will be build automatically.
-    </p>
+<div class="pomodoro-page" id="pomodoroPage">
 
-  </div>
+    <div class="pomodoro-container">
 
-<div class="pomodoro-content">
+        <h1>🍅 Pomodoro Timer</h1>
 
-  <h2>Pomodoro Timer</h2>
+        <div id="timer">25:00</div>
 
-  <div id="timerDisplay">25:00</div>
+        <div class="mode-buttons">
 
-  <button id="mode25">25 / 5</button>
-  <button id="mode35">35 / 5</button>
-  <button id="mode50">50 / 15</button>
+            <button id="workBtn">Work</button>
 
-    <button id="startPomodoro">Start</button>
+            <button id="shortBtn">Short Break</button>
+
+            <button id="longBtn">Long Break</button>
+
+        </div>
+
+        <div class="control-buttons">
+
+            <button id="startBtn">▶ Start</button>
+
+            <button id="pauseBtn">⏸ Pause</button>
+
+            <button id="resetBtn">🔄 Reset</button>
+
+        </div>
 
     </div>
+
+</div>
+
+
+
 
 </div>
 
@@ -353,8 +363,18 @@ const flash = document.getElementById("flash");
 const todoCard = document.getElementById("todoCard");
 const todoPage = document.getElementById("todoPage");
 
-const pomodoroCard = document.getElementById("pomodoroCard");
+const pomodoroCard = document.getElementById("pomodoro-card");
 const pomodoroPage = document.getElementById("pomodoroPage");
+
+
+
+pomodoroCard.addEventListener("click", () => {
+    dashboard.style.display = "none";
+    pomodoroPage.classList.add("show");
+});
+
+
+
 
 // Get Started
 btn.addEventListener("click", () => {
@@ -377,13 +397,7 @@ todoCard.addEventListener("click", () => {
 
 });
 
-// Pomodoro Page
-pomodoroCard.addEventListener("click", () => {
 
-    dashboard.style.display = "none";
-    pomodoroPage.classList.add("show");
-
-});
 
 // ==========================
 // TODO LIST
@@ -472,6 +486,7 @@ function saveTask(task) {
 }
 
 // Remove Task
+// Remove Task
 function removeTask(taskText) {
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -480,14 +495,115 @@ function removeTask(taskText) {
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
+}
 
-    const pomodoroCard = document.getElementById("pomodoroCard");
-const pomodoroPage = document.getElementById("pomodoroPage");
+// ==========================
+// POMODORO TIMER
+// ==========================
 
-pomodoroCard.addEventListener("click", () => {
-    dashboard.style.display = "none";
-    pomodoroPage.classList.add("show");
+let minutes = 25;
+let seconds = 0;
+let timer = null;
+let running = false;
+
+const timerDisplay = document.getElementById("timer");
+
+function updateTimer() {
+    timerDisplay.textContent =
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0");
+}
+
+updateTimer();
+
+document.getElementById("startBtn").addEventListener("click", () => {
+
+    if (running) return;
+
+    running = true;
+
+    timer = setInterval(() => {
+
+        if (seconds === 0) {
+
+            if (minutes === 0) {
+
+                clearInterval(timer);
+                running = false;
+                alert("🎉 Session Complete!");
+                return;
+
+            }
+
+            minutes--;
+            seconds = 59;
+
+        } else {
+
+            seconds--;
+
+        }
+
+        updateTimer();
+
+    }, 1000);
+
 });
 
-}
+document.getElementById("pauseBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+    running = false;
+
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+    running = false;
+
+    minutes = 25;
+    seconds = 0;
+
+    updateTimer();
+
+});
+
+document.getElementById("workBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+    running = false;
+
+    minutes = 25;
+    seconds = 0;
+
+    updateTimer();
+
+});
+
+document.getElementById("shortBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+    running = false;
+
+    minutes = 5;
+    seconds = 0;
+
+    updateTimer();
+
+});
+
+document.getElementById("longBtn").addEventListener("click", () => {
+
+    clearInterval(timer);
+    running = false;
+
+    minutes = 15;
+    seconds = 0;
+
+    updateTimer();
+
+});
+
 </script>
