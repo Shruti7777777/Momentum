@@ -249,7 +249,7 @@
 
         <ul id="taskList"></ul>
 
-        <button id="backFromTodo">
+        <button id="backFromTodo" class="back-btn">
             ← Back
         </button>
 
@@ -345,13 +345,35 @@
 
     <div class="streak-container">
 
-        <h1>🔥 Daily Streak</h1>
+        <h1 class="streak-title">Daily Streak</h1>
 
-        <h2 id="streakCount">0 Days</h2>
+        <div class="streak-card">
 
-        <p>Stay consistent and don't break your streak!</p>
+            <div class="fire-circle">
+                🔥
+            </div>
 
-        <button id="checkInBtn">✅ Check In Today</button>
+            <h2 id="streakCount">0</h2>
+
+            <h3>DAYS</h3>
+
+            <p>KEEP THE FIRE ALIVE</p>
+
+            <div class="streak-progress">
+
+                <div class="streak-progress-fill"></div>
+
+            </div>
+
+            <span class="next-goal">
+                Next Badge • 30 Days
+            </span>
+
+        </div>
+
+        <button id="checkInBtn" class="premium-btn">
+            ✓ Check In Today
+        </button>
 
         <button id="backFromStreak" class="back-btn">
             ← Back
@@ -362,32 +384,111 @@
 </div>
 
 
+<!--Analytics page -->
 
-<!-- ANALYTICS PAGE -->
+<!-- =========================
+     ANALYTICS PAGE
+========================= -->
 
 <div class="analytics-page" id="analyticsPage">
 
     <div class="analytics-container">
 
-        <h1>📊 Analytics</h1>
+        <h1 class="analytics-title">
+            📊 Your Productivity
+        </h1>
 
-        <div class="stats-box">
+        <div class="analytics-grid">
 
-            <h2>Today's Stats</h2>
+            <div class="analytics-card">
+                <h3>🔥 Streak</h3>
+                <h2 id="analyticsStreak">0 Days</h2>
+            </div>
 
-            <p>✅ Tasks Completed: <span id="tasksCompleted">0</span></p>
+            <div class="analytics-card">
+                <h3>🍅 Sessions</h3>
+                <h2 id="pomodoroCompleted">0</h2>
+            </div>
 
-            <p>🍅 Pomodoro Sessions: <span id="pomodoroCompleted">0</span></p>
+            <div class="analytics-card">
+                <h3>✅ Tasks</h3>
+                <h2 id="tasksCompleted">0</h2>
+            </div>
 
-            <p>🔥 Current Streak: <span id="analyticsStreak">0</span></p>
+            <div class="analytics-card">
+                <h3>⏳ Focus Time</h3>
+                <h2 id="focusTimeAnalytics">0 min</h2>
+            </div>
 
         </div>
 
-        <button id="backFromAnalytics">⬅ Back</button>
+        <div class="goal-card">
+
+            <h3>Today's Progress</h3>
+
+            <div class="goal-bar">
+
+                <div class="goal-fill" id="goalFill"></div>
+
+            </div>
+
+            <span id="goalPercent">0%</span>
+
+        </div>
+
+        <div class="week-card">
+
+            <h2>Weekly Activity</h2>
+
+            <div class="week-chart">
+
+                <div class="day">
+                    <div class="bar" style="height:45%"></div>
+                    <span>Mon</span>
+                </div>
+
+                <div class="day">
+                    <div class="bar" style="height:70%"></div>
+                    <span>Tue</span>
+                </div>
+
+                <div class="day">
+                    <div class="bar" style="height:30%"></div>
+                    <span>Wed</span>
+                </div>
+
+                <div class="day">
+                    <div class="bar" style="height:90%"></div>
+                    <span>Thu</span>
+                </div>
+
+                <div class="day">
+                    <div class="bar" style="height:60%"></div>
+                    <span>Fri</span>
+                </div>
+
+                <div class="day">
+                    <div class="bar" style="height:35%"></div>
+                    <span>Sat</span>
+                </div>
+
+                <div class="day">
+                    <div class="bar" style="height:80%"></div>
+                    <span>Sun</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <button id="backFromAnalytics" class="back-btn">
+            ← Back
+        </button>
 
     </div>
 
 </div>
+
 
 
 
