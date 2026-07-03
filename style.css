@@ -1355,3 +1355,40 @@ transform:translateY(-10px);
     transition:width 1s linear;
     border-radius:20px;
 }
+
+
+.streak-page{
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+}
+
+.streak-page.show{
+
+    display:flex;
+
+}
+
+.streak-container{
+
+    text-align:center;
+    color:white;
+
+}
+
+#streakCount{
+
+    font-size:80px;
+
+    color:#ffb300;
+
+    text-shadow:0 0 20px orange;
+
+    margin:20px 0;
+
+}

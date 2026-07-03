@@ -198,19 +198,20 @@
 
       <!-- STREAK -->
 
-      <div class="feature-card">
+<div class="feature-card" id="streakCard">
 
-        <h2>Daily Streak</h2>
+    <h2>🔥 Daily Streak</h2>
 
-        <p>
-          Keep your productivity streak alive 
-        </p>
+    <p>
+        Keep your productivity streak alive.
+    </p>
 
-      </div>
+</div>
 
 
       
-/analyticsCard**/
+   <!---Analytics-->
+
       <div class="feature-card" id="analyticsCard">
 
     <h2>Analytics</h2>
@@ -310,6 +311,29 @@
 
 
 
+<!-- DAILY STREAK PAGE -->
+
+<div class="streak-page" id="streakPage">
+
+    <div class="streak-container">
+
+        <h1>🔥 Daily Streak</h1>
+
+        <h2 id="streakCount">0 Days</h2>
+
+        <p>Stay consistent and don't break your streak!</p>
+
+        <button id="checkInBtn">✅ Check In Today</button>
+
+        <button id="backFromStreak">⬅ Back</button>
+
+    </div>
+
+</div>
+
+
+
+
 </div>
 
 
@@ -345,6 +369,9 @@ const todoPage = document.getElementById("todoPage");
 const pomodoroCard = document.getElementById("pomodoro-card");
 const pomodoroPage = document.getElementById("pomodoroPage");
 
+const streakCard = document.getElementById("streakCard");
+const streakPage = document.getElementById("streakPage");
+
 
 
 pomodoroCard.addEventListener("click", () => {
@@ -352,6 +379,11 @@ pomodoroCard.addEventListener("click", () => {
     pomodoroPage.classList.add("show");
 });
 
+
+streakCard.addEventListener("click", () => {
+    dashboard.style.display = "none";
+    streakPage.classList.add("show");
+});
 
 
 
