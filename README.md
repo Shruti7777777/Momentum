@@ -19,6 +19,10 @@ While building Momentum, I learned how to:
 
 It's my first website so I will improve it further as per requirement .
 
+I used AI as a mentor throughout the process to learn, and explore design ideas. Rather than copying code, I spent over 32 hours understanding, modifying, testing, and integrating the features into my own project.
+
+I will repeat again , I DID LEARN.
+
 Thank you!
 
 ##Author
