@@ -164,20 +164,19 @@
 
 
 
-      <!-- TO DO LIST -->
+    
 
-      <div class="feature-card"
-            id="todoCard">
+  <!-- TO DO LIST -->
 
-        <h2>To-Do List</h2>
+      <div class="feature-card" id="todoCard">
 
-        <p>
-          Plan your day and complete tasks efficiently.
-        </p>
+    <h2>To-Do List</h2>
 
-      </div>
+    <p>
+        Plan your day and complete tasks efficiently.
+    </p>
 
-
+</div>
 
       <!-- POMODORO -->
 
@@ -221,47 +220,43 @@
 
 <!---TODO PAGE-->
 
-<div class="todo-page"
-      id="todoPage">
-    <div class="motivation-box">
-      <h1 class="motivation-title">
-        LOCK IN
-      </h1>
+<!-- TODO PAGE -->
 
-      <p class="motivation-text"
-      style="color:#b8f3ff; text-shadow:0 0 15px #59e1ff; opacity:1;">
-        Small steps every day create unstoppable momentum.
-      </p>
+<div class="todo-page" id="todoPage">
+
+    <div class="todo-content">
+
+        <h1 class="todo-title">
+            📝 Today's Mission
+        </h1>
+
+        <p class="todo-subtitle">
+            Every completed task moves you one step closer.
+        </p>
+
+        <div class="input-box">
+
+            <input
+                type="text"
+                id="taskInput"
+                placeholder="What are you conquering today?">
+
+            <button id="addTaskBtn">
+                ＋ Add Task
+            </button>
+
+        </div>
+
+        <ul id="taskList"></ul>
+
+        <button id="backFromTodo">
+            ← Back
+        </button>
 
     </div>
 
-<!--TO DO CONTENT-->
-<div class="todo-content">
-
-    <h2 style="
-      color:#b8f3ff;
-      text-shadow:0 0 18px #59e1ff;
-      font-size:2.4rem;
-      letter-spacing:1px;
-      ">
-      Your Task
-    </h2>
-
-
-    <input type="text" id="taskInput"
-    placeholder="Enter a task...">
-
-    <button id="addTaskBtn">Add Task</button>
-
-    <ul id="taskList"></ul>
-
-  </div>
-
 </div>
 
-
-
-<!-- POMODORO PAGE -->
 
 <!-- POMODORO PAGE -->
 
@@ -287,7 +282,7 @@
 
         <div class="mode-buttons">
 
-            <button id="workBtn" class="mode active">
+            <button id="workBtn" class="mode ">
                 💼 Work
             </button>
 
@@ -330,6 +325,8 @@
             </div>
 
         </div>
+      
+
 
         <button id="backFromPomodoro" class="back-btn">
             ← Back
@@ -356,7 +353,9 @@
 
         <button id="checkInBtn">✅ Check In Today</button>
 
-        <button id="backFromStreak">⬅ Back</button>
+        <button id="backFromStreak" class="back-btn">
+            ← Back
+        </button>
 
     </div>
 
@@ -398,8 +397,8 @@
   <!-- FLASH EFFECT -->
 
  <div class="flash" id="flash"></div>
+ <script src="script.js"></script>
 
-<script src="script.js"></script>
 
 </body>
 </html>
@@ -505,7 +504,6 @@ window.onload = function () {
 
 };
 
-// Add Task
 addTaskBtn.addEventListener("click", function () {
 
     const taskText = taskInput.value.trim();
@@ -519,54 +517,73 @@ addTaskBtn.addEventListener("click", function () {
 
 });
 
+
+
+// Add Task
 // Create Task
 function createTask(taskText) {
 
     const li = document.createElement("li");
+    li.className = "task-item";
 
+    // Task text
     const taskSpan = document.createElement("span");
-    taskSpan.textContent = taskText;
+    taskSpan.textContent = "📝 " + taskText;
+    taskSpan.className = "task-text";
 
-    li.appendChild(taskSpan);
+    // Button container
+    const buttonBox = document.createElement("div");
+    buttonBox.className = "task-buttons";
 
-    // Complete Button
+    // COMPLETE BUTTON
     const completeBtn = document.createElement("button");
-    completeBtn.textContent = "Complete";
-completeBtn.onclick = function () {
+    completeBtn.textContent = "✔";
+    completeBtn.className = "complete-btn";
 
-    if (!taskSpan.classList.contains("completed")) {
+    completeBtn.onclick = function () {
 
-        taskSpan.classList.add("completed");
+        if (!taskSpan.classList.contains("completed")) {
 
-        let completedTasks = Number(localStorage.getItem("completedTasks")) || 0;
+            taskSpan.classList.add("completed");
 
-        completedTasks++;
+            let completedTasks =
+                Number(localStorage.getItem("completedTasks")) || 0;
 
-        localStorage.setItem("completedTasks", completedTasks);
+            completedTasks++;
 
-    }
+            localStorage.setItem("completedTasks", completedTasks);
 
-    completeBtn.classList.remove("complete-flash");
-    void completeBtn.offsetWidth;
-    completeBtn.classList.add("complete-flash");
+            // Animation
+            li.classList.add("task-complete");
 
-};
-
-
-
-    // Delete Button
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-
-    deleteBtn.onclick = function () {
-
-        li.remove();
-        removeTask(taskText);
+        }
 
     };
 
-    li.appendChild(completeBtn);
-    li.appendChild(deleteBtn);
+    // DELETE BUTTON
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "🗑";
+    deleteBtn.className = "delete-btn";
+
+    deleteBtn.onclick = function () {
+
+        li.style.transform = "translateX(120px)";
+        li.style.opacity = "0";
+
+        setTimeout(() => {
+
+            li.remove();
+            removeTask(taskText);
+
+        }, 300);
+
+    };
+
+    buttonBox.appendChild(completeBtn);
+    buttonBox.appendChild(deleteBtn);
+
+    li.appendChild(taskSpan);
+    li.appendChild(buttonBox);
 
     taskList.appendChild(li);
 
@@ -584,7 +601,6 @@ function saveTask(task) {
 }
 
 // Remove Task
-// Remove Task
 function removeTask(taskText) {
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -594,6 +610,7 @@ function removeTask(taskText) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
 }
+
 
 // ==========================
 // POMODORO TIMER
@@ -774,8 +791,6 @@ backFromStreak.addEventListener("click", () => {
 
 
 
-
-
 document.getElementById("backFromAnalytics").addEventListener("click", () => {
 
     analyticsPage.classList.remove("show");
@@ -783,6 +798,24 @@ document.getElementById("backFromAnalytics").addEventListener("click", () => {
     dashboard.style.display = "block";
 
 });
+
+
+
+document.getElementById("backFromTodo").addEventListener("click", () => {
+
+    todoPage.classList.remove("show");
+    dashboard.style.display = "block";
+
+});
+
+document.getElementById("backFromPomodoro").addEventListener("click", () => {
+
+    pomodoroPage.classList.remove("show");
+
+    dashboard.style.display = "block";
+
+});
+
 
 
 </script>
