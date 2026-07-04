@@ -258,7 +258,9 @@
 </div>
 
 
-<!-- POMODORO PAGE -->
+<!-- ===========================
+     POMODORO PAGE
+=========================== -->
 
 <div class="pomodoro-page" id="pomodoroPage">
 
@@ -270,44 +272,52 @@
             Deep work. Zero distractions.
         </p>
 
+        <!-- TIMER -->
+
         <div class="timer-card">
 
-            <div id="timer">25:00</div>
+            <div class="timer-ring">
 
-            <div class="progress-ring">
                 <div class="progress" id="progress"></div>
+
+                <div id="timer">25:00</div>
+
             </div>
 
         </div>
 
+        <!-- MODE BUTTONS -->
+
         <div class="mode-buttons">
 
-            <button id="workBtn" class="mode ">
+            <button id="workBtn" class="mode active">
                 💼 Work
             </button>
 
             <button id="shortBtn" class="mode">
-                ☕ Short
+                ☕ Short Break
             </button>
 
             <button id="longBtn" class="mode">
-                🌙 Long
+                🌙 Long Break
             </button>
 
         </div>
 
+        <!-- CONTROLS -->
+
         <div class="control-buttons">
 
             <button id="startBtn" class="glass-btn">
-                ▶ Start
+                ▶
             </button>
 
             <button id="pauseBtn" class="glass-btn">
-                ⏸ Pause
+                ⏸
             </button>
 
             <button id="resetBtn" class="glass-btn">
-                ↻ Reset
+                ↻
             </button>
 
         </div>
@@ -315,180 +325,66 @@
         <div class="session-info">
 
             <div class="info-card">
+
+                <div class="info-icon">🍅</div>
+
                 <h3 id="todaySessions">0</h3>
-                <span>Sessions</span>
+
+                <span>Today's Sessions</span>
+
             </div>
 
             <div class="info-card">
-                <h3 id="focusTime">0m</h3>
-                <span>Focus Time</span>
+
+                <div class="info-icon">⏳</div>
+
+                <h3 id="focusTime">0 min</h3>
+
+                <span>Total Focus</span>
+
+            </div>
+
+            <div class="info-card">
+
+                <div class="info-icon">🔥</div>
+
+                <h3 id="focusLevel">1</h3>
+
+                <span>Focus Level</span>
+
             </div>
 
         </div>
-      
 
+        <div class="focus-mission">
+
+            <h2>🎯 Current Mission</h2>
+
+            <p id="currentMission">
+                Finish today's most important task.
+            </p>
+
+        </div>
+
+        <div class="quote-card">
+
+            <span class="quote-icon">💡</span>
+
+            <p id="focusQuote">
+                "Small consistent actions create extraordinary results."
+            </p>
+
+        </div>
 
         <button id="backFromPomodoro" class="back-btn">
-            ← Back
+
+            ← Dashboard
+
         </button>
 
     </div>
 
 </div>
-
-
-
-
-<!-- DAILY STREAK PAGE -->
-
-<div class="streak-page" id="streakPage">
-
-    <div class="streak-container">
-
-        <h1 class="streak-title">Daily Streak</h1>
-
-        <div class="streak-card">
-
-            <div class="fire-circle">
-                🔥
-            </div>
-
-            <h2 id="streakCount">0</h2>
-
-            <h3>DAYS</h3>
-
-            <p>KEEP THE FIRE ALIVE</p>
-
-            <div class="streak-progress">
-
-                <div class="streak-progress-fill"></div>
-
-            </div>
-
-            <span class="next-goal">
-                Next Badge • 30 Days
-            </span>
-
-        </div>
-
-        <button id="checkInBtn" class="premium-btn">
-            ✓ Check In Today
-        </button>
-
-        <button id="backFromStreak" class="back-btn">
-            ← Back
-        </button>
-
-    </div>
-
-</div>
-
-
-<!--Analytics page -->
-
-<!-- =========================
-     ANALYTICS PAGE
-========================= -->
-
-<div class="analytics-page" id="analyticsPage">
-
-    <div class="analytics-container">
-
-        <h1 class="analytics-title">
-            📊 Your Productivity
-        </h1>
-
-        <div class="analytics-grid">
-
-            <div class="analytics-card">
-                <h3>🔥 Streak</h3>
-                <h2 id="analyticsStreak">0 Days</h2>
-            </div>
-
-            <div class="analytics-card">
-                <h3>🍅 Sessions</h3>
-                <h2 id="pomodoroCompleted">0</h2>
-            </div>
-
-            <div class="analytics-card">
-                <h3>✅ Tasks</h3>
-                <h2 id="tasksCompleted">0</h2>
-            </div>
-
-            <div class="analytics-card">
-                <h3>⏳ Focus Time</h3>
-                <h2 id="focusTimeAnalytics">0 min</h2>
-            </div>
-
-        </div>
-
-        <div class="goal-card">
-
-            <h3>Today's Progress</h3>
-
-            <div class="goal-bar">
-
-                <div class="goal-fill" id="goalFill"></div>
-
-            </div>
-
-            <span id="goalPercent">0%</span>
-
-        </div>
-
-        <div class="week-card">
-
-            <h2>Weekly Activity</h2>
-
-            <div class="week-chart">
-
-                <div class="day">
-                    <div class="bar" style="height:45%"></div>
-                    <span>Mon</span>
-                </div>
-
-                <div class="day">
-                    <div class="bar" style="height:70%"></div>
-                    <span>Tue</span>
-                </div>
-
-                <div class="day">
-                    <div class="bar" style="height:30%"></div>
-                    <span>Wed</span>
-                </div>
-
-                <div class="day">
-                    <div class="bar" style="height:90%"></div>
-                    <span>Thu</span>
-                </div>
-
-                <div class="day">
-                    <div class="bar" style="height:60%"></div>
-                    <span>Fri</span>
-                </div>
-
-                <div class="day">
-                    <div class="bar" style="height:35%"></div>
-                    <span>Sat</span>
-                </div>
-
-                <div class="day">
-                    <div class="bar" style="height:80%"></div>
-                    <span>Sun</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <button id="backFromAnalytics" class="back-btn">
-            ← Back
-        </button>
-
-    </div>
-
-</div>
-
 
 
 
@@ -544,19 +440,33 @@ streakCard.addEventListener("click", () => {
     streakPage.classList.add("show");
 });
 
+
 analyticsCard.addEventListener("click", () => {
-
-    document.getElementById("tasksCompleted").textContent =
-        localStorage.getItem("completedTasks") || 0;
-
-    document.getElementById("pomodoroCompleted").textContent =
-        localStorage.getItem("pomodoroSessions") || 0;
-
-    document.getElementById("analyticsStreak").textContent =
-        localStorage.getItem("streak") || 0;
 
     dashboard.style.display = "none";
     analyticsPage.classList.add("show");
+
+    animateCounter(
+        "tasksCompleted",
+        Number(localStorage.getItem("completedTasks")) || 0
+    );
+
+    animateCounter(
+        "pomodoroCompleted",
+        Number(localStorage.getItem("pomodoroSessions")) || 0
+    );
+
+    animateCounter(
+        "analyticsStreak",
+        Number(localStorage.getItem("streak")) || 0
+    );
+
+    animateCounter(
+        "xpCounter",
+        (Number(localStorage.getItem("completedTasks")) || 0) * 20 +
+        (Number(localStorage.getItem("pomodoroSessions")) || 0) * 50 +
+        (Number(localStorage.getItem("streak")) || 0) * 100
+    );
 
 });
 
@@ -917,6 +827,31 @@ document.getElementById("backFromPomodoro").addEventListener("click", () => {
 
 });
 
+
+function animateCounter(id, target) {
+
+    let count = 0;
+
+    const element = document.getElementById(id);
+
+    const speed = 25;
+
+    const interval = setInterval(() => {
+
+        count++;
+
+        element.textContent = count;
+
+        if (count >= target) {
+
+            element.textContent = target;
+            clearInterval(interval);
+
+        }
+
+    }, speed);
+
+}
 
 
 </script>
