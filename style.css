@@ -920,6 +920,14 @@ body::before{
    POMODORO PAGE
 =========================== */
 
+.pomodoro-page{
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
 .pomodoro-container{
 
     width:900px;

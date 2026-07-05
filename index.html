@@ -164,8 +164,6 @@
 
 
 
-    
-
   <!-- TO DO LIST -->
 
       <div class="feature-card" id="todoCard">
@@ -185,8 +183,6 @@
     <p>Stay focused using deep work sessions.</p>
 
 </div>
-
-
 
 
 
@@ -218,7 +214,6 @@
 </div> <!-- dashboard-boxes -->
 </div> <!-- dashboard -->
 
-<!---TODO PAGE-->
 
 <!-- TODO PAGE -->
 
@@ -259,11 +254,46 @@
 
 
 <!-- ===========================
+     DAILY STREAK PAGE
+=========================== -->
+
+<div class="streak-page" id="streakPage">
+
+    <div class="streak-container">
+
+        <h1 class="streak-title">🔥 Daily Streak</h1>
+
+        <p class="streak-subtitle">
+            Consistency beats perfection.
+        </p>
+
+        <div class="streak-card">
+
+            <h2 id="streakCount">0 Days</h2>
+
+            <p>Keep showing up every day.</p>
+
+        </div>
+
+        <button id="checkInBtn" class="checkin-btn">
+            ✅ Check In Today
+        </button>
+
+        <button id="backFromStreak" class="back-btn">
+            ← Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ===========================
      POMODORO PAGE
 =========================== -->
 
 <div class="pomodoro-page" id="pomodoroPage">
-
+    
     <div class="pomodoro-container">
 
         <h1 class="pomodoro-title">🍅 Focus Session</h1>
@@ -290,7 +320,7 @@
 
         <div class="mode-buttons">
 
-            <button id="workBtn" class="mode active">
+            <button id="workBtn" class="mode">
                 💼 Work
             </button>
 
@@ -309,11 +339,11 @@
         <div class="control-buttons">
 
             <button id="startBtn" class="glass-btn">
-                ▶
+                ⏸
             </button>
 
             <button id="pauseBtn" class="glass-btn">
-                ⏸
+                ▶
             </button>
 
             <button id="resetBtn" class="glass-btn">
@@ -358,7 +388,7 @@
 
         <div class="focus-mission">
 
-            <h2>🎯 Current Mission</h2>
+            <h2>Current Mission</h2>
 
             <p id="currentMission">
                 Finish today's most important task.
@@ -377,25 +407,18 @@
         </div>
 
         <button id="backFromPomodoro" class="back-btn">
-
-            ← Dashboard
-
+             Dashboard
         </button>
 
     </div>
 
+  
 </div>
 
 
-
-
-
-
-  <!-- FLASH EFFECT -->
-
- <div class="flash" id="flash"></div>
- <script src="script.js"></script>
-
+ 
+ 
+<div class="flash" id="flash"></div>
 
 </body>
 </html>
@@ -426,7 +449,6 @@ const streakPage = document.getElementById("streakPage");
 
 const analyticsCard = document.getElementById("analyticsCard");
 const analyticsPage = document.getElementById("analyticsPage");
-
 
 
 pomodoroCard.addEventListener("click", () => {
@@ -469,8 +491,6 @@ analyticsCard.addEventListener("click", () => {
     );
 
 });
-
-
 
 
 // Get Started
@@ -527,7 +547,6 @@ addTaskBtn.addEventListener("click", function () {
     taskInput.value = "";
 
 });
-
 
 
 // Add Task
@@ -622,7 +641,6 @@ function removeTask(taskText) {
 
 }
 
-
 // ==========================
 // POMODORO TIMER
 // ==========================
@@ -632,10 +650,22 @@ let seconds = 0;
 let timer = null;
 let running = false;
 
-const timerDisplay = document.getElementById("timer");
+// Premium Quotes
+const quotes = [
+    "Discipline beats motivation.",
+    "Focus creates freedom.",
+    "Small wins become huge victories.",
+    "Stay locked in.",
+    "Deep work changes lives.",
+    "One session at a time."
+];
 
+const timerDisplay = document.getElementById("timer");
 const progress = document.getElementById("progress");
+
 let totalSeconds = 25 * 60;
+
+
 
 function updateTimer() {
 
@@ -654,11 +684,20 @@ function updateTimer() {
 
 updateTimer();
 
+const timerCard = document.querySelector(".timer-card");
+
+if (timerCard) {
+    timerCard.style.boxShadow = "0 0 60px rgba(0,212,255,.25)";
+}
+
+
 document.getElementById("startBtn").addEventListener("click", () => {
 
     if (running) return;
 
     running = true;
+    document.querySelector(".timer-card").style.boxShadow =
+    "0 0 90px cyan";
 
     timer = setInterval(() => {
 
@@ -670,11 +709,18 @@ document.getElementById("startBtn").addEventListener("click", () => {
                 running = false;
 
                 // Save completed Pomodoro session
-    let sessions = Number(localStorage.getItem("pomodoroSessions")) || 0;
-    sessions++;
-    localStorage.setItem("pomodoroSessions", sessions);
+                let sessions = Number(localStorage.getItem("pomodoroSessions")) || 0;
+                sessions++;
+                localStorage.setItem("pomodoroSessions", sessions);
 
-                alert("🎉 Session Complete!");
+                document.querySelector(".quote-card").innerHTML = `
+                <span class="quote-icon">🏆</span>
+                <p>Session Complete! Amazing work.</p>
+                `;
+
+                document.querySelector(".timer-card").style.boxShadow =
+                "0 0 120px #00ff99";
+
                 return;
 
             }
@@ -754,61 +800,71 @@ updateTimer();
 
 });
 
-
-
-
-
+// ==========================
+// STREAK
+// ==========================
 
 
 const checkInBtn = document.getElementById("checkInBtn");
 const streakCount = document.getElementById("streakCount");
 
-let streak = Number(localStorage.getItem("streak")) || 0;
-let lastCheckIn = localStorage.getItem("lastCheckIn");
+if (checkInBtn && streakCount) {
 
-streakCount.textContent = streak + " Days";
-
-checkInBtn.addEventListener("click", () => {
-
-    const today = new Date().toDateString();
-
-    if (lastCheckIn === today) {
-        alert("✅ You've already checked in today!");
-        return;
-    }
-
-    streak++;
-    lastCheckIn = today;
-
-    localStorage.setItem("streak", streak);
-    localStorage.setItem("lastCheckIn", today);
+    let streak = Number(localStorage.getItem("streak")) || 0;
+    let lastCheckIn = localStorage.getItem("lastCheckIn");
 
     streakCount.textContent = streak + " Days";
 
-    alert("🔥 Check-in successful!");
+    checkInBtn.addEventListener("click", () => {
 
-});
+        const today = new Date().toDateString();
+
+        if (lastCheckIn === today) {
+            alert("✅ You've already checked in today!");
+            return;
+        }
+
+        streak++;
+        lastCheckIn = today;
+
+        localStorage.setItem("streak", streak);
+        localStorage.setItem("lastCheckIn", today);
+
+        streakCount.textContent = streak + " Days";
+
+        alert("🔥 Check-in successful!");
+
+    });
+
+}
+
 
 const backFromStreak = document.getElementById("backFromStreak");
 
-backFromStreak.addEventListener("click", () => {
+if (backFromStreak) {
 
-    streakPage.classList.remove("show");
+    backFromStreak.addEventListener("click", () => {
 
-    dashboard.style.display = "block";
+        streakPage.classList.remove("show");
+        dashboard.style.display = "block";
 
-});
+    });
+
+}
 
 
+const backFromAnalytics = document.getElementById("backFromAnalytics");
 
+if (backFromAnalytics) {
 
-document.getElementById("backFromAnalytics").addEventListener("click", () => {
+    backFromAnalytics.addEventListener("click", () => {
 
-    analyticsPage.classList.remove("show");
+        analyticsPage.classList.remove("show");
+        dashboard.style.display = "block";
 
-    dashboard.style.display = "block";
+    });
 
-});
+}
 
 
 
@@ -822,7 +878,6 @@ document.getElementById("backFromTodo").addEventListener("click", () => {
 document.getElementById("backFromPomodoro").addEventListener("click", () => {
 
     pomodoroPage.classList.remove("show");
-
     dashboard.style.display = "block";
 
 });
